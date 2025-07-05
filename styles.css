@@ -17,6 +17,12 @@
             font-size: 2em;
             color: #ffffff; /* Белый текст */
         }
+         header p {
+            margin: 5px;
+            padding: 5px;
+            font-size: 1em;
+            color: #ffffff; /* Белый текст */
+        }
         .school-image {
         max-width: 100%;
         height: auto;
