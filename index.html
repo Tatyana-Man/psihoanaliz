@@ -911,7 +911,22 @@ document.addEventListener("DOMContentLoaded", function () {
   </p>
 </div>
 
-   <script>
+<script>
+  // Скрываем баннер, если пользователь уже принял cookies
+  window.addEventListener('DOMContentLoaded', function () {
+    if (localStorage.getItem('cookieConsent') === 'true') {
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+  });
+
+  // При нажатии скрываем баннер и сохраняем согласие
+  document.getElementById('accept-cookies').addEventListener('click', function () {
+    document.getElementById('cookie-banner').style.display = 'none';
+    localStorage.setItem('cookieConsent', 'true');
+  });
+</script>
+
+       <script>
     function getLastWednesday() {
         let now = new Date();
         let day = now.getDay(); // 0 (вс) ... 6 (сб)
@@ -928,23 +943,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("update-date").textContent = getLastWednesday();
     });
-</script>
-
-
-
-<script>
-  // Скрываем баннер, если пользователь уже принял cookies
-  window.addEventListener('DOMContentLoaded', function () {
-    if (localStorage.getItem('cookieConsent') === 'true') {
-      document.getElementById('cookie-banner').style.display = 'none';
-    }
-  });
-
-  // При нажатии скрываем баннер и сохраняем согласие
-  document.getElementById('accept-cookies').addEventListener('click', function () {
-    document.getElementById('cookie-banner').style.display = 'none';
-    localStorage.setItem('cookieConsent', 'true');
-  });
 </script>
     
     </footer> 
