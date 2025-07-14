@@ -192,16 +192,23 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 .responsive-table th,
 .responsive-table td {
   border: 1px solid #ddd;
-  padding: 10px;
+  padding: 12px;
   text-align: left;
+  vertical-align: top;
+  word-break: break-word;
 }
 
-/* Мобильная версия — карточки */
+.responsive-table thead {
+  background-color: #f8f8f8;
+}
+
+/* === Мобильная версия: карточки === */
 @media (max-width: 768px) {
   .responsive-table,
   .responsive-table thead,
@@ -211,6 +218,7 @@
   .responsive-table td {
     display: block;
     width: 100%;
+    box-sizing: border-box;
   }
 
   .responsive-table thead {
@@ -218,28 +226,28 @@
   }
 
   .responsive-table tr {
-    margin-bottom: 15px;
+    background: #f4e8ff;
     border: 1px solid #ccc;
-    border-radius: 6px;
-    background: #f8f0ff;
+    border-radius: 12px;
     padding: 16px;
+    margin-bottom: 16px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   }
 
   .responsive-table td {
     border: none;
     padding: 0;
-    margin-bottom: 10px;
-    position: static;
-    text-align: left;
+    margin-bottom: 12px;
     font-size: 15px;
-  }
-
-  .responsive-table td::before {
-    display: none; /* Отключаем ::before, чтобы не мешал */
+    word-break: break-word;
   }
 
   .responsive-table td:last-child {
     margin-bottom: 0;
+  }
+
+  /* Убираем псевдозаголовки, если использовались ранее */
+  .responsive-table td::before {
+    display: none;
   }
 }
